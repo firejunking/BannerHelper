@@ -5,12 +5,34 @@
 
 ## 效果图
 
+##### 正常模式
 ![正常模式](https://github.com/firejunking/BannerHelper/blob/b54401447fb9b67421efc82e8abbde8aac5de075/images/default.gif)
 
+##### 切割模式
 ![切割模式](https://github.com/firejunking/BannerHelper/blob/b54401447fb9b67421efc82e8abbde8aac5de075/images/clip.gif)
-## 方法
 
 ## Attributes属性（布局文件中使用）
+|属性|format|describe
+|---|---|---|
+|banner_background|color|背景色
+|banner_can_loop|boolean|是否可无限轮训
+|banner_width_ratio_height_value|float|轮播控件宽高比
+|banner_indicator_normal|reference|未选中下的指示器
+|banner_indicator_selected|reference|选中下的指示器
+|banner_indicator_margin|integer|指示器外边距
+|banner_show_delayed_time|integer|轮播间隔时间
+|banner_show_duration_time|integer|轮播持续时间
+|banner_screen_page_limit|integer|屏幕页面限制
+|banner_open_clip_mode|boolean|是否开启切割模式
+|banner_is_auto_play|boolean|是否开启自动轮播模式
+|indicatorPaddingLeft|dimension|指示器左内边距
+|indicatorPaddingRight|dimension|指示器右内边距
+|indicatorPaddingTop|dimension|指示器上内边距
+|indicatorPaddingBottom|dimension|指示器下内边距
+|indicatorAlign|enum|指示器在左/中/右
+|banner_clip_mode_padding|integer|切割模式的内边距
+|banner_clip_mode_page_margin|integer|切割模式的外边距
+|banner_show_indicator|boolean|是否显示指示器
 
 ## 使用步骤
 Gradle依赖
