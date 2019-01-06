@@ -4,10 +4,10 @@
 现在许多App都会使用轮播图的控件，而对于轮播控件来说，在组件化的情况下，可以对其进行封装抽离成为单独一个类库进行使用。
 
 ## 效果图
-##### 正常模式
 
-##### 切割模式
+![正常模式](https://github.com/firejunking/BannerHelper/blob/b54401447fb9b67421efc82e8abbde8aac5de075/images/default.gif)
 
+![切割模式](https://github.com/firejunking/BannerHelper/blob/b54401447fb9b67421efc82e8abbde8aac5de075/images/clip.gif)
 ## 方法
 
 ## Attributes属性（布局文件中使用）
