@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BannerViewPagerHelper">
+        <attr name="banner_background" format="color" />
+        <attr name="banner_can_loop" format="boolean" />
+        <attr name="banner_width_ratio_height_value" format="float" />
+        <attr name="banner_indicator_normal" format="reference" />
+        <attr name="banner_indicator_selected" format="reference" />
+        <attr name="banner_indicator_margin" format="integer" />
+        <attr name="banner_show_delayed_time" format="integer" />
+        <attr name="banner_show_duration_time" format="integer" />
+        <attr name="banner_screen_page_limit" format="integer" />
+        <attr name="banner_open_clip_mode" format="boolean" />
+        <attr name="banner_is_auto_play" format="boolean" />
+        <attr name="indicatorPaddingLeft" format="dimension" />
+        <attr name="indicatorPaddingRight" format="dimension" />
+        <attr name="indicatorPaddingTop" format="dimension" />
+        <attr name="indicatorPaddingBottom" format="dimension" />
+        <attr name="indicatorAlign">
+            <enum name="left" value="0" />
+            <enum name="center" value="1" />
+            <enum name="right" value="2" />
+        </attr>
+        <attr name="banner_clip_mode_padding" format="integer" />
+        <attr name="banner_clip_mode_page_margin" format="integer" />
+        <attr name="banner_show_indicator" format="boolean" />
+    </declare-styleable>
+</resources>
