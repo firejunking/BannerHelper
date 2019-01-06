@@ -14,6 +14,7 @@ public class Utils {
      *
      * @return 屏幕宽px
      */
+
     public static int getScreenWidthInPx(@NonNull Context context) {
         return context.getResources().getDisplayMetrics().widthPixels;
     }
