@@ -68,4 +68,6 @@ public interface IBannerViewPagerFeature {
     void setIndicatorVisible(boolean visible);
 
     void setIsAutoPlay(boolean autoPlay);
+
+    void setStrictModel(boolean var1);
 }

@@ -1,5 +1,7 @@
 ## Android图片轮播控件辅助类
 
+[ ![Download](https://api.bintray.com/packages/guojunfire/bannerviewhelper/bannerviewhelper/images/download.svg?version=1.0.1) ](https://bintray.com/guojunfire/bannerviewhelper/bannerviewhelper/1.0.1/link)
+
 ## 介绍
 现在许多App都会使用轮播图的控件，而对于轮播控件来说，在组件化的情况下，可以对其进行封装抽离成为单独一个类库进行使用。
 
@@ -25,20 +27,21 @@
 |banner_screen_page_limit|integer|屏幕页面限制
 |banner_open_clip_mode|boolean|是否开启切割模式
 |banner_is_auto_play|boolean|是否开启自动轮播模式
-|indicatorPaddingLeft|dimension|指示器左内边距
-|indicatorPaddingRight|dimension|指示器右内边距
-|indicatorPaddingTop|dimension|指示器上内边距
-|indicatorPaddingBottom|dimension|指示器下内边距
-|indicatorAlign|enum|指示器在左/中/右
+|indicator_padding_left|dimension|指示器左内边距
+|indicator_padding_right|dimension|指示器右内边距
+|indicator_padding_top|dimension|指示器上内边距
+|indicator_padding_bottom|dimension|指示器下内边距
+|indicator_align|enum|指示器在左/中/右
 |banner_clip_mode_padding|integer|切割模式的内边距
 |banner_clip_mode_page_margin|integer|切割模式的外边距
 |banner_show_indicator|boolean|是否显示指示器
+|banner_open_strict_model|boolean|是否开启严格模式
 
 ## 使用步骤
 Gradle依赖
 ```
 dependencies{
-    implementation 'com.firejun.bannerviewhelper:1.0.0'
+    implementation 'com.firejun.bannerviewhelper:1.0.1'
 }
 ```
 Adapter写法可多种

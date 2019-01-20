@@ -119,6 +119,10 @@ public class BannerViewHelper<T> extends FrameLayout implements IBannerViewPager
      * 是否显示指示器
      */
     private boolean mIsShowIndicator = true;
+    /**
+     * 是否开启严格模式
+     */
+    private boolean mIsStrictModel;
 
     public interface IndicatorAlign {
         int LEFT = 0;
@@ -170,15 +174,16 @@ public class BannerViewHelper<T> extends FrameLayout implements IBannerViewPager
         setDuration(typedArray.getInt(R.styleable.BannerViewPagerHelper_banner_show_duration_time, 600));
         setOffscreenPageLimit(typedArray.getInt(R.styleable.BannerViewPagerHelper_banner_screen_page_limit, 3));
         isOpenClipMode(typedArray.getBoolean(R.styleable.BannerViewPagerHelper_banner_open_clip_mode, false));
-        setIndicatorAlign(typedArray.getInt(R.styleable.BannerViewPagerHelper_indicatorAlign, 1));
-        setIndicatorPaddingLeft(typedArray.getDimensionPixelSize(R.styleable.BannerViewPagerHelper_indicatorPaddingLeft, 0));
-        setIndicatorPaddingRight(typedArray.getDimensionPixelSize(R.styleable.BannerViewPagerHelper_indicatorPaddingRight, 0));
-        setIndicatorPaddingTop(typedArray.getDimensionPixelSize(R.styleable.BannerViewPagerHelper_indicatorPaddingTop, 0));
-        setIndicatorPaddingBottom(typedArray.getDimensionPixelSize(R.styleable.BannerViewPagerHelper_indicatorPaddingBottom, 10));
+        setIndicatorAlign(typedArray.getInt(R.styleable.BannerViewPagerHelper_indicator_align, 1));
+        setIndicatorPaddingLeft(typedArray.getDimensionPixelSize(R.styleable.BannerViewPagerHelper_indicator_padding_left, 0));
+        setIndicatorPaddingRight(typedArray.getDimensionPixelSize(R.styleable.BannerViewPagerHelper_indicator_padding_right, 0));
+        setIndicatorPaddingTop(typedArray.getDimensionPixelSize(R.styleable.BannerViewPagerHelper_indicator_padding_top, 0));
+        setIndicatorPaddingBottom(typedArray.getDimensionPixelSize(R.styleable.BannerViewPagerHelper_indicator_padding_bottom, 10));
         setClipModelPadding(typedArray.getInt(R.styleable.BannerViewPagerHelper_banner_clip_mode_padding, 10));
         setClipModelPageMargin(typedArray.getInt(R.styleable.BannerViewPagerHelper_banner_clip_mode_page_margin, 8));
         setIndicatorVisible(typedArray.getBoolean(R.styleable.BannerViewPagerHelper_banner_show_indicator, true));
         setIsAutoPlay(typedArray.getBoolean(R.styleable.BannerViewPagerHelper_banner_is_auto_play, true));
+        setStrictModel(typedArray.getBoolean(R.styleable.BannerViewPagerHelper_banner_open_strict_model, true));
         typedArray.recycle();
     }
 
@@ -499,6 +504,11 @@ public class BannerViewHelper<T> extends FrameLayout implements IBannerViewPager
         mIsAutoPlay = autoPlay;
     }
 
+    @Override
+    public void setStrictModel(boolean isOpen) {
+        this.mIsStrictModel = isOpen;
+    }
+
     public void setBannerData(List<T> dataList, ViewHolderBannerCreator creator) {
         if (dataList == null || creator == null) {
             return;
@@ -524,7 +534,7 @@ public class BannerViewHelper<T> extends FrameLayout implements IBannerViewPager
 
         setOpenClipModelEffect();
         initIndicator();
-        mAdapter = new DefaultBannerPagerAdapter(dataList, creator, mIsCanLoop);
+        mAdapter = new DefaultBannerPagerAdapter(dataList, creator, mIsCanLoop, mIsStrictModel);
         mAdapter.setUpViewViewPager(mViewPager);
         mAdapter.setPageClickListener(mBannerPageClickListener);
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -586,13 +596,17 @@ public class BannerViewHelper<T> extends FrameLayout implements IBannerViewPager
         private BannerPageClickListener mPageClickListener;
         private final int mLooperCountFactor = 1000;
 
-        DefaultBannerPagerAdapter(List<T> dataList, ViewHolderBannerCreator creator, boolean isCanLoop) {
+        DefaultBannerPagerAdapter(List<T> dataList, ViewHolderBannerCreator creator, boolean isCanLoop, boolean isStrictModel) {
             if (this.dataList == null) {
                 this.dataList = new ArrayList<>();
             }
             this.dataList.addAll(dataList);
             this.creator = creator;
-            this.canLoop = isCanLoop;
+            if (isStrictModel) {
+                this.canLoop = this.dataList.size() > 1;
+            } else {
+                this.canLoop = isCanLoop;
+            }
         }
 
         public void setPageClickListener(BannerPageClickListener pageClickListener) {
